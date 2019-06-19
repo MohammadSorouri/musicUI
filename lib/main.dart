@@ -57,9 +57,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Container(
                 width: 125,
                 height: 125,
-                child: ClipOval(
-                    clipper: CircleClipper(),
-                    child: Image.network(demoPlaylist.songs[1].albumArtUrl,fit: BoxFit.cover,)),
+                child: RadialSeekBar(
+                  child: ClipOval(
+                      clipper: CircleClipper(),
+                      child: Image.network(demoPlaylist.songs[1].albumArtUrl,fit: BoxFit.cover,)),
+                ),
               ),
             )
           ),
@@ -76,3 +78,33 @@ class _MyHomePageState extends State<MyHomePage> {
 
 }
 
+class RadialSeekBar extends StatefulWidget {
+  final double trackWidth;
+  final Color trackColor;
+  final double progressWidth;
+  final Color progressColor;
+  final double progressPercent,
+  final double thumbWidth;
+  final Color thumbColor;
+  final double thumbPosition;
+  RadialSeekBar({
+    this.trackWidth = 3,
+    this.trackColor = Colors.grey,
+    this.progressWidth = 5,
+    this.progressColor = Colors.black,
+    this.progressPercent = 0,
+    this.thumbWidth = 10,
+    this.thumbColor = Colors.black,
+    this.thumbPosition = 0,
+
+});
+  @override
+  _RadialSeekBarState createState() => _RadialSeekBarState();
+}
+
+class _RadialSeekBarState extends State<RadialSeekBar> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
