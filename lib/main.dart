@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_music_ui/theme.dart';
 
 void main() => runApp(MyApp());
 
@@ -46,43 +47,77 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: <Widget>[
-          Container(
-            width: double.infinity,
-            height: 250,
+          Expanded(
+            child: Center(
+              child: Container(
+                width: 125,
+                height: 125,
+              ),
+            )
           ),
           Container(
-            color: Colors.black,
-            child: Column(children: <Widget>[
-              RichText(
-                text: TextSpan(
-                  text: "",
-                  children: [
-                    TextSpan(
-                      text: "Song Title\n",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 4,
-                        height: 1.5,
+            color: accentColor,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 40,bottom: 50),
+              child: Column(children: <Widget>[
+                RichText(
+                  text: TextSpan(
+                    text: "",
+                    children: [
+                      TextSpan(
+                        text: "Song Title\n",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 4,
+                          height: 1.5,
+                        ),
+                      ),
+                      TextSpan(
+                        text: "Artist Name",
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(.75),
+                          fontSize: 12,
+                          letterSpacing: 3,
+                          height: 1.5
+                        )
+                      )
+                    ]
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 40),
+                  child: Row(children: <Widget>[
+                    Expanded(child: Container(),),
+                    IconButton(
+                      onPressed: (){},
+                      icon: Icon(Icons.skip_previous,color: Colors.white,size: 35,),
+                    ),
+                    Expanded(child: Container(),),
+                    RawMaterialButton(
+                      shape: CircleBorder(),
+                      fillColor: Colors.white,
+                      splashColor: accentColor,
+                      highlightColor: lightAccentColor.withOpacity(.5),
+                      elevation: 10,
+                      highlightElevation: 5,
+                      onPressed: (){},
+                      child: Padding(padding: EdgeInsets.all(8),
+                      child: Icon(Icons.play_arrow,color: darkAccentColor,size: 35,),
                       ),
                     ),
-                    TextSpan(
-                      text: "Artist Name",
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(.75),
-                        fontSize: 12,
-                        letterSpacing: 3,
-                        height: 1.5
-                      )
-                    )
-                  ]
-                ),
-              ),
-              Row(children: <Widget>[
+                   Expanded(child: Container(),),
+                    IconButton(
+                      onPressed: (){},
+                      icon: Icon(Icons.skip_next,color: Colors.white,size: 35,),
+                    ),
+                    Expanded(child: Container(),),
 
-              ],)
-            ],),
+                  ],),
+                )
+              ],),
+            ),
           )
         ],
       ),
